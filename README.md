@@ -163,24 +163,11 @@ Observações:
   - A aplicação consulta `https://gutendex.com/books/?search=<termo>`
   - O JSON é convertido com Jackson para `RespostaAPI` e depois para entidades `Livro`/`Autor`.
 
-## Testes
-Execute os testes com:
-```powershell
-./mvnw.cmd test
-```
-
 ## Solução de problemas
 - Porta 8080 ocupada: altere `server.port` ou libere a porta.
 - Console H2 não abre: confirme que o perfil `dev` está ativo e acesse `http://localhost:8080/h2-console`.
 - Erro de conexão PostgreSQL (prod): verifique variáveis `DB_*`, rede/porta e credenciais.
 - Falha ao consultar Gutendex: cheque conectividade de rede/proxy. A exceção será propagada como `RuntimeException`.
-
-## Roadmap (ideias)
-- Expor endpoints REST para as mesmas consultas do CLI
-- Melhorar deduplicação (chave composta título+autor)
-- Paginação e filtros avançados (assuntos, estantes)
-- Cache de requisições à Gutendex
-- Observabilidade (metrics/logs estruturados)
 
 ---
 Projeto baseado no desafio Alura (LiterAlura).
